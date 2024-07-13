@@ -100,7 +100,7 @@ function mz_wCaptcha_GenTpl(&$templates)
     $templates['comment-post'] = $templates['commentpost'];
   }
   // 如果模板内有 <!--mz_wCaptcha-->，替换
-  if (strpos($templates['comment-post'], "mz-wCaptcha") !== false) {
+  if (strpos($templates['comment-post'], "<!--mz_wCaptcha-->") !== false) {
     $templates['comment-post'] = str_replace('<!--mz_wCaptcha-->', '<div id="mz-wCaptcha"></div>', $templates['comment-post']);
   } elseif (mb_substr_count($templates['comment-post'], "ZC_COMMENT_VERIFY_ENABLE", "UTF-8") == 1) {
     $templates['comment-post'] = str_replace('{if $option[\'ZC_COMMENT_VERIFY_ENABLE\']}', '<div id="mz-wCaptcha"></div>' . "\n" . '{if $option[\'ZC_COMMENT_VERIFY_ENABLE\']}', $templates['comment-post']);
